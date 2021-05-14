@@ -2,7 +2,7 @@ MarketPlace Completo.
 
 
 🚀 Tecnologias.
-Este projeto foi desenvolvido com as seguintes tecnolias
+Este projeto foi desenvolvido com as seguintes tecnologias: 
 - PHP
 - FRAMEWORK LARAVEL
 - MYSQL
