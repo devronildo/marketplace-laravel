@@ -28,11 +28,10 @@ class ProductController extends Controller
     {
          $user = auth()->user(); //pegando a loja do usuario autenticado
 
-         if(!$user->store()->exists()){
-            flash('É preciso criar uma loja para cadastrar produtos!')->warning();
-		    return redirect()->route('admin.stores.index');
+         if(!$user->store()->exists()) {
+             flash('É preciso criar uma loja para cadastrar produtos!')->warning();
+            return redirect()->route('admin.stores.index');
          }
-
 
          $products = $user->store->products()->paginate(10);
 
@@ -66,6 +65,8 @@ class ProductController extends Controller
     {
          $data = $request->all();
          $categories = $request->get('categories', null);
+
+         $data['price'] = formatPriceToDatabase($data['price']);
 
          $store = auth()->user()->store; //acessando a loja do usuario autenticado
          $product = $store->products()->create($data);  //criando um produto pra para a loja

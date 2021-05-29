@@ -5,3 +5,8 @@
            return $line['store_id'] == $storeId;
        });
  }
+
+
+ function formatPriceToDatabase($price){
+       return str_replace(['.', ','], ['', '.'], $price);
+ }
